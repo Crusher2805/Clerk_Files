@@ -9,32 +9,32 @@ package practicaprogramada1;
  * @author sebas
  */
 public class NodoP {
-    private DatoC elemento; // Almacena el dato de tipo DatoC
-    private NodoP siguiente; // Referencia al siguiente nodo
+    private DatoC elemento; 
+    private NodoP siguiente; 
 
     public NodoP() {
-        this.siguiente = null; // Inicializa el siguiente nodo como nulo
+        this.siguiente = null; 
     }
 
     public NodoP(DatoC elemento, NodoP siguiente) {
-        this.elemento = elemento; // Inicializa el elemento
-        this.siguiente = siguiente; // Inicializa el siguiente nodo
+        this.elemento = elemento; 
+        this.siguiente = siguiente; 
     }
 
     public DatoC getElemento() {
-        return elemento; // Retorna el elemento
+        return elemento; 
     }
 
     public void setElemento(DatoC elemento) {
-        this.elemento = elemento; // Establece el elemento
+        this.elemento = elemento; 
     }
 
     public NodoP getSiguiente() {
-        return siguiente; // Retorna el siguiente nodo
+        return siguiente; 
     }
 
     public void setSiguiente(NodoP siguiente) {
-        this.siguiente = siguiente; // Establece el siguiente nodo
+        this.siguiente = siguiente; /
     }
 }
 
