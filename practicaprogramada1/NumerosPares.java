@@ -9,16 +9,16 @@ package practicaprogramada1;
  * @author sebas
  */
 public class NumerosPares {
-     public static void pares (int n) {
-        if (n < 0) {
+     public static void pares (int num) {
+        if (num < 0) {
             return;
         }
         
-        if (n % 2 != 0){
+        if (num % 2 != 0){
            n-=1; 
         }
         
-        pares (n-2);
+        pares (num-2);
         System.out.print(n + "\n");
     }
 }
