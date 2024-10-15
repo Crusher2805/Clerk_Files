@@ -15,7 +15,6 @@ public class PilaP {
         this.cima = null;
     }
 
-    // Método para apilar un nuevo elemento de tipo DatoC
     public void apilar(DatoC dato) {
         NodoP nodo = new NodoP(dato, cima); // Crea un nuevo nodo con el dato proporcionado
         cima = nodo; // Actualiza la cima a este nuevo nodo
