@@ -1,18 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package practicaprogramada1;
+public class NodoC {
+    private int dato;         
+    private Nodo siguiente;
 
-/**
- *
- * @author sebas
- */
-public class NodoCola {
-    private int dato;         // Dato que almacena el nodo
-    private NodoCola siguiente;   // Referencia al siguiente nodo
-
-    public NodoCola(int dato) {
+    public NodoC(int dato) {
         this.dato = dato;
         this.siguiente = null;
     }
@@ -25,7 +15,7 @@ public class NodoCola {
         this.dato = dato;
     }
 
-    public NodoCola getSiguiente() {
+    public NodoC getSiguiente() {
         return siguiente;
     }
 
