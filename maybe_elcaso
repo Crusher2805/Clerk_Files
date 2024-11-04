@@ -1,0 +1,115 @@
+abstract class Persona {
+    protected String nombre;
+    protected String identificacion;
+
+    public Persona(String nombre, String identificacion) {
+        this.nombre = nombre;
+        this.identificacion = identificacion;
+    }
+
+    public abstract void mostrarInformacion();
+}
+
+
+class Empleado extends Persona {
+    private String puesto;
+
+    public Empleado(String nombre, String identificacion, String puesto) {
+        super(nombre, identificacion);
+        this.puesto = puesto;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        System.out.println("Empleado: " + nombre + ", ID: " + identificacion + ", Puesto: " + puesto);
+    }
+}
+
+class Cliente extends Persona {
+    private String email;
+
+    public Cliente(String nombre, String identificacion, String email) {
+        super(nombre, identificacion);
+        this.email = email;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        System.out.println("Cliente: " + nombre + ", ID: " + identificacion + ", Email: " + email);
+    }
+}
+
+
+class Producto {
+    private String nombre;
+    private double precio;
+
+    public Producto(String nombre, double precio) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Producto: " + nombre + ", Precio: " + precio);
+    }
+}
+
+
+class Venta {
+    private String idVenta;
+    private String producto;
+    private int cantidad;
+
+    public Venta(String idVenta, String producto, int cantidad) {
+        this.idVenta = idVenta;
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Venta ID: " + idVenta + ", Producto: " + producto + ", Cantidad: " + cantidad);
+    }
+}
+
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class GestionEmpleados {
+    private static final String FILE_NAME = "empleados.txt";
+
+    public static void agregarEmpleado(Empleado empleado) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            writer.write(empleado.nombre + "," + empleado.identificacion + "," + empleado.puesto);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Empleado> consultarEmpleados() {
+        List<Empleado> empleados = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                Empleado empleado = new Empleado(data[0], data[1], data[2]);
+                empleados.add(empleado);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return empleados;
+    }
+
+    public static void main(String[] args) {
+        Empleado empleado1 = new Empleado("Juan Perez", "123", "Gerente");
+        agregarEmpleado(empleado1);
+
+        List<Empleado> empleados = consultarEmpleados();
+        for (Empleado emp : empleados) {
+            emp.mostrarInformacion();
+        }
+    }
+}
